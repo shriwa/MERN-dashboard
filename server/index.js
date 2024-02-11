@@ -12,7 +12,7 @@ mongoose.connect(
   console.log("Successfully connected to MongoDB")
 );
 
-// Schema
+// Schema for details
 const Details = mongoose.model("Details", {
   _id: Number,
   coaching: {
@@ -166,6 +166,7 @@ const Details = mongoose.model("Details", {
   },
 });
 
+// POST for dropdown details
 app.post("/adddetails", async (req, res) => {
   try {
     const {
@@ -202,6 +203,7 @@ app.post("/adddetails", async (req, res) => {
   }
 });
 
+// Get for  details
 app.get("/getdetails/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -210,6 +212,59 @@ app.get("/getdetails/:id", async (req, res) => {
       return res.status(404).send("Details not found");
     }
     res.json(details);
+  } catch (error) {
+    console.error("Error retrieving details:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+//Schema fro match data
+const Match_data = mongoose.model("Match_data", {
+  match: {
+    _id: Number,
+    date: {
+      type: String,
+      required: true,
+    },
+    opponent: {
+      type: String,
+      required: true,
+    },
+    result: {
+      type: String,
+      required: true,
+    },
+    score: {
+      type: String,
+      required: true,
+    },
+  },
+});
+
+// POST for match details
+app.post("/addmatch", async (req, res) => {
+  try {
+    const { match } = req.body;
+    const match_data = new Match_data({
+      match,
+    });
+    await match_data.save();
+    res.status(201).send("Details added successfully");
+  } catch (error) {
+    console.error("Error adding details:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// GET for match details
+app.get("/getmatch/all", async (req, res) => {
+  try {
+    const matchData = await Match_data.find();
+    if (!matchData) {
+      return res.status(404).send("Details not found");
+    }
+    const matches = matchData.map((item) => item.match);
+    res.json(matches);
   } catch (error) {
     console.error("Error retrieving details:", error);
     res.status(500).send("Internal Server Error");

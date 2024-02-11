@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  width: 60%;
+  width: 10%;
 }
 
 .error-message {
@@ -46,7 +46,7 @@
 
 .field input,
 .field select {
-  width: 240px;
+  width: 220px;
   padding: 8px 12px;
   border-radius: 4px;
   font-size: 16px;
@@ -65,11 +65,11 @@
 }
 
 .field.name input {
-  width: 170px;
+  width: 150px;
 }
 
 .field.phone input {
-  width: 200px;
+  width: 180px;
 }
 
 .field.coach div {
@@ -93,7 +93,7 @@
 }
 
 .field.coach input[type="number"] {
-  width: 80px;
+  width: 60px;
 }
 
 .field.coach label {
@@ -102,8 +102,21 @@
 }
 
 .wtn-hand label {
-  width: 50px;
-  margin-right: 0px;
+  width: 40px;
+  margin-right: 10px;
+}
+
+.field.wtn {
+  display: flex;
+  gap: 10px;
+}
+
+.field.wtn .wtn-main input[type="number"] {
+  width: 80px;
+}
+
+.field.wtn .wtn-hand select {
+  width: 80px;
 }
 
 .field.ranking {
@@ -217,29 +230,33 @@
 
   .field input,
   .field select {
-    width: 250px;
+    width: 220px;
     padding: 6px 8px;
   }
 
   .field.name input {
-    width: 175px;
+    width: 135px;
   }
 
   .field.phone input {
-    width: 210px;
+    width: 170px;
+  }
+
+  .field.ranking {
+    margin-right: 80px;
   }
 
   .ranking-option {
     display: flex;
     align-items: center;
     gap: 20px;
-    margin-left: 80px;
+    margin-left: 70px;
     justify-content: center;
   }
 
   .ranking-input input {
-    width: 50px;
-    height: 30px;
+    width: 40px;
+    height: 20px;
   }
   .btn {
     height: 25px;

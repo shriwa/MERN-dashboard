@@ -16,10 +16,6 @@
   width: 100%;
 }
 
-.main.collapsed {
-  width: 0;
-}
-
 @media (max-width: 1024px) {
   .dashboard {
     padding-left: 80px;
