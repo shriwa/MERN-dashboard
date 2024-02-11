@@ -1,0 +1,90 @@
+.topbar {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 10px;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+.topbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar-top .right {
+  display: flex;
+  gap: 20px;
+}
+
+.heading {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.topbar-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.topbar-bottom h1 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.topbar-bottom .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar-bottom .right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-right: 35px;
+}
+
+@media (max-width: 1024px) {
+  .topbar {
+    margin: 0px 20px;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 800px) {
+  .topbar {
+    margin-left: 40px;
+  }
+
+  .topbar h1 {
+    font-size: 12px;
+  }
+
+  .topbar-top .right {
+    gap: 10px;
+  }
+  .heading {
+    gap: 2px;
+  }
+  .topbar-bottom h1 {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 550px) {
+  .topbar {
+    margin-left: 10px;
+    margin-top: 20px;
+  }
+  .topbar-top {
+    gap: 20px;
+  }
+  .topbar h1 {
+    font-size: 10px;
+  }
+}

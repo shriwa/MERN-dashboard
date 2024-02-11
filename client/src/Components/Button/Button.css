@@ -1,0 +1,16 @@
+.button {
+  background: var(--primary);
+  width: 150px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: white;
+  gap: 10px;
+}
+
+.button:hover {
+  background: var(--primary-1);
+  transition: 0.3s;
+}

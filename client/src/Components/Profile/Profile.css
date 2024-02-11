@@ -1,0 +1,111 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.profile-info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.profile-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.profile-info h1 {
+  background-color: rgba(128, 128, 128, 0.126);
+  border-radius: 3px;
+  text-align: center;
+  font-size: 18px;
+  color: var(--primary);
+  width: 180px;
+  height: 30px;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.profil-details-sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.profil-details-sub label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  text-align: right;
+  margin-right: 10px;
+  width: 120px;
+  font-weight: 500;
+}
+
+.profil-details-sub input,
+.profil-details-sub select {
+  width: 220px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  background: transparent;
+}
+
+.profil-details-sub input[type="number"]::-webkit-inner-spin-button,
+.profil-details-sub input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.profil-details-sub input:focus,
+.profil-details-sub select:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 0.2rem var(--secondary);
+}
+
+.profile-stats {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.profile-stats h1 {
+  font-weight: 500;
+}
+
+.profile-stats table {
+  font-size: 15px;
+  background: white;
+  width: 100%;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile-stats table th,
+.profile-stats table td {
+  padding: 8px;
+  text-align: left;
+}
+
+.profile-stats table th {
+  background: var(--primary);
+  color: white;
+}
