@@ -241,21 +241,6 @@ const Match_data = mongoose.model("Match_data", {
   },
 });
 
-// POST for match details
-app.post("/addmatch", async (req, res) => {
-  try {
-    const { match } = req.body;
-    const match_data = new Match_data({
-      match,
-    });
-    await match_data.save();
-    res.status(201).send("Details added successfully");
-  } catch (error) {
-    console.error("Error adding details:", error);
-    res.status(500).send("Internal Server Error");
-  }
-});
-
 // GET for match details
 app.get("/getmatch/all", async (req, res) => {
   try {
@@ -267,6 +252,21 @@ app.get("/getmatch/all", async (req, res) => {
     res.json(matches);
   } catch (error) {
     console.error("Error retrieving details:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// POST for match details
+app.post("/addmatch", async (req, res) => {
+  try {
+    const { match } = req.body;
+    const match_data = new Match_data({
+      match,
+    });
+    await match_data.save();
+    res.status(201).send("Details added successfully");
+  } catch (error) {
+    console.error("Error adding details:", error);
     res.status(500).send("Internal Server Error");
   }
 });

@@ -9,6 +9,7 @@ import { MdSportsHandball } from "react-icons/md";
 import { IoLogoWhatsapp } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 
+// Define validation schema using yup
 const schema = yup.object().shape({
   fullname: yup.string().required("Name is mandatory"),
   gender: yup.string().required("Gender is mandatory"),
@@ -39,6 +40,7 @@ const schema = yup.object().shape({
 });
 
 const Form = () => {
+  // Initialize useForm hook with validation schema
   const {
     register,
     handleSubmit,
@@ -47,14 +49,17 @@ const Form = () => {
 
   console.log(errors);
 
+  // Function to handle form submission
   const onSubmit = (data) => {
     console.log(data);
   };
 
+  // State to store fetched details
   const [details, setDetails] = useState([]);
 
+  // Fetch details from server
   useEffect(() => {
-    fetch("http://localhost:2000/getdetails/1")
+    fetch("http://localhost:2000/getdetails/2")
       .then((res) => res.json())
       .then((data) => {
         setDetails(data);
@@ -70,6 +75,7 @@ const Form = () => {
       <form action="" onSubmit={handleSubmit(onSubmit)}>
         <div className="form">
           <div className="field-group">
+            {/* Name Field */}
             <div className="field name">
               <label htmlFor="">Name</label>
               <input
@@ -91,6 +97,7 @@ const Form = () => {
               />
               <p className="error-message">{errors?.fullname?.message}</p>
             </div>
+            {/* Gender Field */}
             <div className="field">
               <label htmlFor="">Gender</label>
               <select name="gender" id="gender" {...register("gender")}>
@@ -101,6 +108,7 @@ const Form = () => {
               <p className="error-message">{errors?.gender?.message}</p>
             </div>
           </div>
+          {/* Address and Coaching Fields */}
           <div className="field-group">
             <div className="field address">
               <label htmlFor="">Address</label>
@@ -130,6 +138,7 @@ const Form = () => {
               <p className="error-message">{errors?.coaching?.message}</p>
             </div>
           </div>
+          {/* Phone and How Long Fields */}
           <div className="field-group">
             <div className="field phone">
               <label htmlFor="">Phone</label>
@@ -164,6 +173,7 @@ const Form = () => {
               <p className="error-message">{errors?.how_long?.message}</p>
             </div>
           </div>
+          {/* Email and Competition Fields */}
           <div className="field-group">
             <div className="field">
               <label htmlFor="">Email</label>
@@ -197,7 +207,7 @@ const Form = () => {
               <p className="error-message">{errors?.competition?.message}</p>
             </div>
           </div>
-
+          {/* Club and Nationality Fields */}
           <div className="field-group">
             <div className="field">
               <label htmlFor="">Club</label>
@@ -236,7 +246,7 @@ const Form = () => {
               <p className="error-message">{errors?.nationality?.message}</p>
             </div>
           </div>
-
+          {/* Age and Coach Fields */}
           <div className="field-group">
             <div className="field">
               <label htmlFor="">Age Range</label>
@@ -294,7 +304,7 @@ const Form = () => {
               </div>
             </div>
           </div>
-
+          {/* Fitness and WTN Fields */}
           <div className="field-group">
             <div className="field fitness">
               <label htmlFor="">Fitness Level</label>
@@ -324,7 +334,7 @@ const Form = () => {
                 />
                 <p className="error-message">{errors?.wtn?.message}</p>
               </div>
-
+              {/* Hand Field */}
               <div className="wtn-hand">
                 <label htmlFor="">Hand</label>
                 <select name="hand" id="hand" {...register("hand")}>
@@ -336,7 +346,7 @@ const Form = () => {
               </div>
             </div>
           </div>
-
+          {/* Play Activity and Skill Level Fields */}
           <div className="field-group">
             <div className="field">
               <label htmlFor="">Play Activity</label>
@@ -379,7 +389,7 @@ const Form = () => {
               <p className="error-message">{errors?.skill_level?.message}</p>
             </div>
           </div>
-
+          {/* Other Sports and Ranking Fields */}
           <div className="field-group">
             <div className="field">
               <label htmlFor="">Other Sports</label>
@@ -431,6 +441,7 @@ const Form = () => {
               </div>
             </div>
           </div>
+          {/* Submit Button */}
           <div className="submit-btn">
             <input className="btn" type="submit" id="submit" />
           </div>

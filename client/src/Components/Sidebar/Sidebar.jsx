@@ -25,16 +25,16 @@ import { LuFolderSearch } from "react-icons/lu";
 
 import { Button, Menu } from "antd";
 
-function getItem(label, key, icon, children, type) {
+// Function to create an item object
+function getItem(label, key, icon) {
   return {
     key,
     icon,
-    children,
     label,
-    type,
   };
 }
 
+// Define sidebar items
 const items = [
   getItem("Home", "1", <HomeOutlined />),
   getItem("Matches", "2", <MdOutlineSportsTennis />),
@@ -56,6 +56,7 @@ const items = [
 const Sidebar = ({ toggleDashboard }) => {
   const [collapsed, setCollapsed] = useState(true);
 
+  // Function to toggle sidebar collapse
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
     toggleDashboard(!collapsed);
@@ -70,6 +71,7 @@ const Sidebar = ({ toggleDashboard }) => {
 
         <div className="side-bar-items">
           <div className="menu-container">
+            {/* Button to toggle sidebar collapse */}
             <Button
               type="primary"
               onClick={toggleCollapsed}
@@ -78,14 +80,17 @@ const Sidebar = ({ toggleDashboard }) => {
               {collapsed ? <DoubleRightOutlined /> : <DoubleLeftOutlined />}
             </Button>
 
-            <Menu
-              defaultSelectedKeys={["1"]}
-              defaultOpenKeys={["sub1"]}
-              mode="inline"
-              inlineCollapsed={collapsed}
-              items={items}
-              style={{ backgroundColor: "white" }}
-            />
+            {/* Sidebar menu */}
+            <div className="sidebar-menu">
+              <Menu
+                defaultSelectedKeys={["1"]}
+                defaultOpenKeys={["sub1"]}
+                mode="inline"
+                inlineCollapsed={collapsed}
+                items={items}
+                style={{ backgroundColor: "white" }}
+              />
+            </div>
           </div>
         </div>
       </div>
